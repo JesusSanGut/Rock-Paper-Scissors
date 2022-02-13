@@ -3,19 +3,19 @@ let playerWon = 0
 let computerWon = 0
 let result =""
 
-let resetGame = () => {
+const resetGame = () => {
     tiedGames = 0
     playerWon = 0
     computerWon = 0
 }
 
-let computerPlay = () => {
+const computerPlay = () => {
     const randomInt = Math.floor(Math.random() * 3)
     const options = ["Rock", "Paper", "Scissors"]
     return options[randomInt]
 }
 
-let playRound = (playerSelection, computerSelection) => {
+const playRound = (playerSelection, computerSelection) => {
     if (playerSelection === computerSelection) {
         tiedGames += 1
         return result = `Tie game! Both players chose ${playerSelection}.`;
@@ -28,7 +28,7 @@ let playRound = (playerSelection, computerSelection) => {
     return result = `You Lose! ${computerSelection} beats ${playerSelection}.`
 }
 
-let playerPlay = () => {
+const playerPlay = () => {
     let play = prompt("Choose: Rock, Paper or Scissors?")
     play = String(play)
     while ((play.toLowerCase() != "rock") && (play.toLowerCase() != "paper") && (play.toLowerCase() != "scissors")) {
@@ -39,7 +39,7 @@ let playerPlay = () => {
     return capitalize(play);
 }
 
-let capitalize = (word) => {
+const capitalize = (word) => {
     word = String(word);
     word = word.toLowerCase();
     let firstLetter = word.slice(0, 1);
@@ -47,7 +47,7 @@ let capitalize = (word) => {
     return word;
 }
 
-let game = () => {
+const game = () => {
     resetGame()
     for (let i = 0; i < 5; i++) {
         playRound(playerPlay(), computerPlay())
